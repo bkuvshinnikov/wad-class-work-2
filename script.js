@@ -152,25 +152,41 @@ async function loadMarsWeather() {
   weatherCard.classList.remove('is-error');
   weatherRefresh.disabled = true;
   weatherDate.textContent = 'Checking the old weather station…';
-  try {
-    const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0', { cache: 'no-store' });
-    if (!response.ok) throw new Error(`NASA API returned ${response.status}`);
-    const data = await response.json();
-    const sol = data.sol_keys?.at(-1);
-    const observation = sol && data[sol];
-    if (!observation?.AT || !observation?.HWS || !observation?.PRE || !observation?.Last_UTC) {
-      throw new Error('No complete weather readings are available.');
-    }
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 8000);
+  const lastKnown = {
+    sol: '681',
+    AT: { av: -62.434 },
+    HWS: { av: 5.632 },
+    PRE: { av: 743.55 },
+    Last_UTC: '2020-10-26T23:09:26Z',
+  };
+
+  function displayObservation(observation, sol, isFallback = false) {
     document.querySelector('#mars-temp').innerHTML = `${observation.AT.av.toFixed(1)}<small> °C</small>`;
     document.querySelector('#mars-wind').innerHTML = `${observation.HWS.av.toFixed(1)}<small> m/s</small>`;
     document.querySelector('#mars-pressure').innerHTML = `${Math.round(observation.PRE.av)}<small> Pa</small>`;
     const date = new Date(observation.Last_UTC);
-    weatherDate.textContent = `Last observation: ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date)}`;
-    document.querySelector('#weather-sol').textContent = `SOL ${sol}`;
-  } catch (error) {
+    const formattedDate = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date);
+    weatherDate.textContent = isFallback ? `Archive unreachable · cached reading: ${formattedDate}` : `Last observation: ${formattedDate}`;
+    document.querySelector('#weather-sol').textContent = isFallback ? `SOL ${sol} · CACHED` : `SOL ${sol}`;
+  }
+
+  try {
+    const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0', { cache: 'no-store', signal: controller.signal });
+    if (!response.ok) throw new Error(`NASA API returned ${response.status}`);
+    const data = await response.json();
+    const sol = data.sol_keys?.[data.sol_keys.length - 1];
+    const observation = sol && data[sol];
+    if (!observation?.AT || !observation?.HWS || !observation?.PRE || !observation?.Last_UTC) {
+      throw new Error('No complete weather readings are available.');
+    }
+    displayObservation(observation, sol);
+  } catch {
     weatherCard.classList.add('is-error');
-    weatherDate.textContent = 'Could not reach the archive. Give NASA a moment and try again.';
+    displayObservation(lastKnown, lastKnown.sol, true);
   } finally {
+    window.clearTimeout(timeout);
     weatherCard.classList.remove('is-loading');
     weatherRefresh.disabled = false;
   }
