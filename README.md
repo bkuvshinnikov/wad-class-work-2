@@ -11,6 +11,7 @@ A playful, brochure-style registration page for a fictional one-way trip to Mars
 - A referral field outside the form, associated with it through the `form` attribute.
 - Three-chapter Mars lifestyle slider: grow potatoes, plan an unsuccessful escape, and record a mission log.
 - A repeatable potato-growing mini-game: water three times to harvest, then start again.
+- A weather card that loads temperature, wind, and pressure from NASA's InSight Mars Weather API. InSight's mission ended in 2022, so the latest available readings are historical, not live conditions.
 - Optional camera preview and video recording for the mission log. Recordings can be downloaded locally.
 
 ## Run locally
@@ -27,4 +28,4 @@ Camera access may require a secure context, such as `localhost` or an HTTPS site
 
 ## Credits
 
-The Mark Watney image is loaded from [Space.com](https://www.space.com/30749-the-martian-faster-way-to-mars.html). Google Fonts provides the Manrope and DM Mono typefaces.
+The Mark Watney image is loaded from [Space.com](https://www.space.com/30749-the-martian-faster-way-to-mars.html). Weather data comes from [NASA's InSight Mars Weather API](https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0). Google Fonts provides the Manrope and DM Mono typefaces.

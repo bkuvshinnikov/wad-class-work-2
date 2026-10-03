@@ -143,6 +143,42 @@ const harvestCountLabel = document.querySelector('#harvest-count');
 let waterCount = 0;
 let harvestCount = 0;
 
+const weatherCard = document.querySelector('.weather-card');
+const weatherDate = document.querySelector('#weather-date');
+const weatherRefresh = document.querySelector('#weather-refresh');
+
+async function loadMarsWeather() {
+  weatherCard.classList.add('is-loading');
+  weatherCard.classList.remove('is-error');
+  weatherRefresh.disabled = true;
+  weatherDate.textContent = 'Checking the old weather station…';
+  try {
+    const response = await fetch('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`NASA API returned ${response.status}`);
+    const data = await response.json();
+    const sol = data.sol_keys?.at(-1);
+    const observation = sol && data[sol];
+    if (!observation?.AT || !observation?.HWS || !observation?.PRE || !observation?.Last_UTC) {
+      throw new Error('No complete weather readings are available.');
+    }
+    document.querySelector('#mars-temp').innerHTML = `${observation.AT.av.toFixed(1)}<small> °C</small>`;
+    document.querySelector('#mars-wind').innerHTML = `${observation.HWS.av.toFixed(1)}<small> m/s</small>`;
+    document.querySelector('#mars-pressure').innerHTML = `${Math.round(observation.PRE.av)}<small> Pa</small>`;
+    const date = new Date(observation.Last_UTC);
+    weatherDate.textContent = `Last observation: ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date)}`;
+    document.querySelector('#weather-sol').textContent = `SOL ${sol}`;
+  } catch (error) {
+    weatherCard.classList.add('is-error');
+    weatherDate.textContent = 'Could not reach the archive. Give NASA a moment and try again.';
+  } finally {
+    weatherCard.classList.remove('is-loading');
+    weatherRefresh.disabled = false;
+  }
+}
+
+weatherRefresh.addEventListener('click', loadMarsWeather);
+loadMarsWeather();
+
 waterButton.addEventListener('click', () => {
   if (waterCount >= 3) return;
   waterCount += 1;

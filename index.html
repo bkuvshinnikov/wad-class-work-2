@@ -46,6 +46,16 @@
         <div><p class="eyebrow"><span>02</span> YOUR ALL-INCLUSIVE MARTIAN LIFESTYLE</p><h2>Three hobbies.<br><em>One planet.</em></h2></div>
         <p>There’s no commute, no awkward small talk with neighbors, and absolutely nowhere to return the things you borrowed.</p>
       </div>
+      <aside class="weather-card" aria-labelledby="weather-title">
+        <div class="weather-card-heading"><span class="weather-icon">☼</span><div><span class="weather-kicker">NASA INSIGHT · ARCHIVE SIGNAL</span><h3 id="weather-title">The last forecast-ish thing.</h3></div><span class="archive-badge"><i></i> HISTORICAL DATA</span></div>
+        <div class="weather-readings">
+          <div class="weather-reading"><span>AVERAGE TEMPERATURE</span><strong id="mars-temp">—<small> °C</small></strong></div>
+          <div class="weather-reading"><span>WIND SPEED</span><strong id="mars-wind">—<small> m/s</small></strong></div>
+          <div class="weather-reading"><span>PRESSURE</span><strong id="mars-pressure">—<small> Pa</small></strong></div>
+        </div>
+        <div class="weather-card-footer"><span id="weather-date" role="status" aria-live="polite">Fetching last known conditions…</span><span id="weather-sol"></span><button type="button" id="weather-refresh">PING THE ARCHIVE ↻</button></div>
+        <p class="weather-disclaimer">Not live weather: NASA’s InSight lander stopped sending measurements in 2022. These readings are the latest available from its archive. Mars may have changed its mind since.</p>
+      </aside>
       <div class="brochure-carousel" aria-label="A brochure of life on Mars">
         <div class="carousel-topline"><span>THE SETTLER’S FIELD GUIDE</span><span id="slide-count">01 <i>/</i> 03</span></div>
         <div class="brochure-slides" aria-live="polite">
