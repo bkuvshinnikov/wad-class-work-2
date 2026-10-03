@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0b">
+  <title>Red Frontier — Mars One-way Trip Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Red Frontier home"><span class="brand-mark">RF</span><span>RED FRONTIER<span class="brand-sub">INTERPLANETARY TRAVEL</span></span></a>
+    <div class="top-status"><span class="live-dot"></span> DEPARTURE WINDOW OPEN <span class="divider">/</span> 2035</div>
+    <a class="top-link apply-cta" href="#application">APPLY NOW <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>01</span> GOOD NEWS: THERE'S WIFI (PROBABLY)</p>
+        <h1>Earth is<br>getting a little <em>crowded.</em></h1>
+        <p class="hero-lede">Come help build a tiny civilization on Mars. Bring useful skills, a sturdy stomach, and a sincere appreciation for potatoes.</p>
+        <a class="hero-cta apply-cta" href="#application">APPLY BEFORE YOU OVERTHINK IT <span>↓</span></a>
+        <div class="mission-facts">
+        <div><span class="fact-value">225<span>M km</span></span><span class="fact-label">LONG WAY TO POP TO THE SHOPS</span></div>
+          <div><span class="fact-value">7<span> months</span></span><span class="fact-label">PLEASE PACK A PODCAST</span></div>
+          <div><span class="fact-value">ONE<span> way</span></span><span class="fact-label">NO REFUNDS, NO U-TURNS</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-frame"><img src="https://cdn.mos.cms.futurecdn.net/LzoMbM95sXW4QujqeFewWL.jpg" alt="Matt Damon as Mark Watney in a spacesuit on the Martian surface"><div class="photo-shade"></div><div class="photo-label"><span>ARCHIVE // ARES III</span><span>MARK WATNEY — RETURNED</span></div></div>
+        <div class="return-stamp"><span>HE MADE IT</span><strong>BACK.</strong><small>MARK WATNEY · 2015 · SHOW-OFF</small></div>
+        <div class="one-way-note"><span class="tiny-star">✳</span> Mark got rescued.<br><b>You get a welcome packet.</b></div>
+        <span class="visual-coord">22° 19′ 55″ S &nbsp; 49° 35′ 58″ W</span>
+      </div>
+      <div class="hero-index">MARS // 01</div>
+    </section>
+
+    <section class="brochure-section" id="life-on-mars">
+      <div class="brochure-heading">
+        <div><p class="eyebrow"><span>02</span> YOUR ALL-INCLUSIVE MARTIAN LIFESTYLE</p><h2>Three hobbies.<br><em>One planet.</em></h2></div>
+        <p>There’s no commute, no awkward small talk with neighbors, and absolutely nowhere to return the things you borrowed.</p>
+      </div>
+      <div class="brochure-carousel" aria-label="A brochure of life on Mars">
+        <div class="carousel-topline"><span>THE SETTLER’S FIELD GUIDE</span><span id="slide-count">01 <i>/</i> 03</span></div>
+        <div class="brochure-slides" aria-live="polite">
+          <article class="brochure-slide active" data-slide="0">
+            <div class="slide-copy"><span class="slide-kicker">CHAPTER 01 · AGRICULTURE</span><h3>Grow potatoes.<br>Become <em>legend.</em></h3><p>Turn Martian dirt into dinner with science, grit, and a suspicious amount of recycled compost. Your first harvest will be a small potato. Name it if you want.</p><div class="slide-fact"><span>LOCAL CUISINE</span><b>Potatoes, prepared 47 different ways.</b></div><a class="apply-cta brochure-apply" href="#mars-application">SIGN UP FOR SPUD DUTY <span>↗</span></a></div>
+            <div class="slide-art potato-art" aria-label="Illustration of a tiny Martian potato farm"><div class="art-sun"></div><div class="farm-horizon"></div><div class="greenhouse" id="potato-greenhouse"><span class="glass-shine"></span><div class="potato-plant plant-one"><i></i><i></i><b></b></div><div class="potato-plant plant-two"><i></i><i></i><b></b></div><div class="potato-plant plant-three"><i></i><i></i><b></b></div><span class="greenhouse-label">POTATO HABITAT · BAY 01</span></div><div class="potato-game"><div class="potato-game-status"><span id="potato-status" aria-live="polite">THIRSTY LITTLE SPUD</span><span id="water-count">0 / 3</span></div><div class="water-track" aria-label="Watering progress"><span id="water-progress"></span></div><button id="water-potato" type="button">WATER THE POTATO <span>💧</span></button><small id="harvest-count">HARVESTS: 0 · THIS IS AGRICULTURE NOW</small></div><span class="art-caption">FRESH(ISH) PRODUCE</span></div>
+          </article>
+          <article class="brochure-slide" data-slide="1" hidden>
+            <div class="slide-copy"><span class="slide-kicker">CHAPTER 02 · RECREATION</span><h3>Plot an escape.<br>Admire the <em>map.</em></h3><p>Draw a dramatic route across the red desert. Pick a launch point. Give your plan a cool codename. Realize you’re 225 million kilometres from the nearest bus stop.</p><div class="slide-fact"><span>ESCAPE PLAN STATUS</span><b>Excellent arrows. Zero available rides.</b></div><a class="apply-cta brochure-apply" href="#mars-application">APPLY FOR THE ESCAPE COMMITTEE <span>↗</span></a></div>
+            <div class="slide-art map-art" aria-label="A fanciful map of an escape plan across Mars"><div class="map-grid"></div><span class="map-label base-label">HOME SWEET HAB</span><span class="map-label hope-label">FREEDOM?</span><svg viewBox="0 0 600 420" role="img" aria-label="A dotted escape route that loops back to base"><path class="route-shadow" d="M100 280 C170 80 360 100 420 205 S535 325 400 320 230 240 100 280"/><path class="route-line" d="M100 280 C170 80 360 100 420 205 S535 325 400 320 230 240 100 280"/><circle class="route-start" cx="100" cy="280" r="13"/><path class="route-arrow" d="M391 307l19 13-19 12"/></svg><span class="map-x">×</span><span class="map-stamp">NICE TRY<br>NO OXYGEN</span><span class="art-caption">YOU ARE HERE · STILL</span></div>
+          </article>
+          <article class="brochure-slide" data-slide="2" hidden>
+            <div class="slide-copy"><span class="slide-kicker">CHAPTER 03 · PERSONAL BRAND</span><h3>Record a log.<br>Talk to <em>Earth.</em></h3><p>Look into the camera and calmly explain how everything is fine. Try not to mention the potatoes have unionized. Your family will love the updates.</p><div class="slide-fact"><span>PRO TIP</span><b>Start with “Day 6 on Mars…” for instant drama.</b></div><a class="apply-cta brochure-apply" href="#mars-application">BECOME A MISSION LEGEND <span>↗</span></a></div>
+            <div class="slide-art log-art"><div class="recording-frame"><video id="log-video" autoplay muted playsinline aria-label="Your camera preview"></video><div class="video-placeholder" id="video-placeholder"><span class="rec-dot"></span><strong>MISSION LOG // LIVE FEED</strong><small>Camera on when you’re ready, Commander.</small><span class="viewfinder v1"></span><span class="viewfinder v2"></span></div><div class="video-hud"><span id="recording-status">STANDBY</span><span>CAM 01 · HAB MODULE</span></div></div><div class="record-controls"><button type="button" id="camera-button" class="camera-button">TURN ON CAMERA <span>◉</span></button><button type="button" id="record-button" class="record-button" disabled>● &nbsp; RECORD LOG</button><a id="download-log" class="download-log" hidden download="mars-mission-log.webm">DOWNLOAD YOUR LOG ↓</a></div><label class="log-label" for="log-script">YOUR OPENING LINE (OPTIONAL)</label><textarea id="log-script" name="missionLogOpening" maxlength="100" placeholder="Day 6 on Mars. The potatoes have started asking questions…"></textarea></div>
+          </article>
+        </div>
+        <div class="carousel-controls"><div class="carousel-dots" role="tablist" aria-label="Choose a brochure chapter"><button type="button" class="carousel-dot selected" aria-label="Chapter 1: potatoes" aria-selected="true" data-go="0"></button><button type="button" class="carousel-dot" aria-label="Chapter 2: escape plan" aria-selected="false" data-go="1"></button><button type="button" class="carousel-dot" aria-label="Chapter 3: mission log" aria-selected="false" data-go="2"></button></div><div class="carousel-arrows"><button type="button" id="previous-slide" aria-label="Previous chapter">←</button><button type="button" id="next-slide" aria-label="Next chapter">→</button></div><span class="swipe-hint">USE THE ARROWS TO EXPLORE <i>✳</i></span></div>
+      </div>
+      <div class="brochure-bottomline"><span>THE MARTIAN SETTLER’S HANDBOOK · VOL. 01</span><span>NO RETURN TICKET. GREAT STORY THOUGH.</span></div>
+    </section>
+
+    <section class="application-section" id="application">
+      <div class="form-intro">
+        <p class="eyebrow"><span>03</span> YOUR FLIGHT PLAN</p>
+        <h2>So, what makes<br>you <em>Mars material?</em></h2>
+        <p>Can you fix an airlock, grow dinner, or keep a straight face when someone says “we're out of coffee”? We want to hear about it.</p>
+        <div class="warning-card"><span class="warning-icon">!</span><p><b>THE RETURN FLIGHT IS A MYTH.</b><br>Mark Watney had Matt Damon. You have this application and an excellent can-do attitude.</p></div>
+        <a class="apply-cta intro-apply" href="#mars-application">OKAY, SIGN ME UP <span>↓</span></a>
+        <div class="form-aside"><span class="aside-line"></span><span>APPLICATION <b>RF—2035—001</b></span></div>
+      </div>
+      <div class="form-panel">
+        <div class="panel-heading"><span>OFFICIAL “PLEASE DON'T PANIC” QUESTIONNAIRE</span><span class="required-note"><i>*</i> REQUIRED</span></div>
+        <div class="candidate-preview" aria-live="polite">
+          <div class="candidate-avatar" id="preview-avatar">?</div>
+          <div class="candidate-copy"><span class="preview-kicker">YOUR MARS ID CARD IS TAKING SHAPE</span><strong id="preview-name">Future Mars Resident</strong><span id="preview-detail">Choose a specialty to begin your origin story.</span></div>
+          <div class="suit-swatch" id="preview-swatch" aria-label="Selected suit color"></div>
+        </div>
+        <div class="progress-wrap"><div class="progress-label"><span>MISSION READINESS</span><strong id="progress-text">0% COMPLETE</strong></div><div class="progress-track"><span id="progress-bar"></span></div></div>
+        <form id="mars-application" action="#manifest" method="get">
+          <div class="form-grid">
+            <div class="field full"><label for="full-name">NAME (FOR YOUR SPACE MAIL) <i>*</i></label><input id="full-name" name="fullName" type="text" placeholder="As it appears on your passport" required></div>
+            <div class="field"><label for="email">EMAIL ADDRESS <i>*</i></label><input id="email" name="email" type="email" placeholder="you@earth.net" required></div>
+            <div class="field"><label for="birth-date">DATE OF BIRTH <i>*</i></label><input id="birth-date" name="birthDate" type="date" required></div>
+            <div class="field"><label for="crew-size">TINY HUMANS COMING ALONG?</label><input id="crew-size" name="dependents" type="number" min="0" max="6" value="0"></div>
+            <div class="field"><label for="departure">PREFERRED DEPARTURE</label><input id="departure" name="departureWindow" type="datetime-local"></div>
+            <fieldset class="field full radio-field"><legend>YOUR ROLE IN THE SETTLEMENT <i>*</i></legend><div class="choice-row"><label class="choice"><input type="radio" name="missionRole" value="science" required><span class="radio-ui"></span> Science &amp; research</label><label class="choice"><input type="radio" name="missionRole" value="engineering"><span class="radio-ui"></span> Engineering</label><label class="choice"><input type="radio" name="missionRole" value="operations"><span class="radio-ui"></span> Mission operations</label></div></fieldset>
+            <div class="field full range-field"><label for="risk">HOW READY ARE YOU TO LEAVE IT ALL BEHIND? <span class="range-value" id="risk-value">8 / 10</span></label><input id="risk" name="readiness" type="range" min="1" max="10" value="8"><div class="range-captions"><span>JUST LOOKING</span><span>PACKED ALREADY</span></div></div>
+            <div class="field"><label for="suit-color">YOUR SUIT ACCENT COLOR</label><div class="color-wrap"><input id="suit-color" name="suitColor" type="color" value="#dc7049"><span>MAKE IT YOURS</span></div></div>
+            <div class="field"><label for="specialty">SPECIALTY <i>*</i></label><select id="specialty" name="specialty" required><option value="" disabled selected>Choose your discipline</option><option>Botany &amp; food systems</option><option>Mechanical engineering</option><option>Medicine</option><option>Geology</option><option>Habitat construction</option><option>Other</option></select></div>
+            <div class="field full"><label for="why-mars">WHY MARS? WRONG ANSWERS ENCOURAGED. <i>*</i></label><textarea id="why-mars" name="motivation" rows="4" maxlength="280" placeholder="Better sunsets? Fewer emails? A bold potato-related career move?" required></textarea><div class="textarea-meta"><span>Keep it under 280 characters (a Mars day is long enough).</span><span id="character-count">0 / 280</span></div></div>
+            <div class="field full file-field"><label for="portrait">UPLOAD YOUR BEST “I'M VERY CALM” PHOTO</label><input id="portrait" name="portrait" type="file" accept="image/*"><small>One clear photo. Helmet hair is completely acceptable.</small></div>
+            <div class="field full checkbox-field"><label class="choice"><input id="commitment" name="oneWayAcknowledgement" type="checkbox" value="accepted" required><span class="check-ui"></span><span>I understand this is a <b>one-way trip</b>. Mark Watney got a rescue. I get to be the person everyone back home asks about at parties. <i>*</i></span></label></div>
+            <div class="field full outside-field"><div><span class="outside-tag">EXTERNAL FIELD ↗</span><label for="referral">CREW REFERRAL CODE</label><input id="referral" name="referralCode" type="text" form="mars-application" placeholder="Optional — ask a current candidate"></div><span class="outside-explain">This input lives outside the form.<br>HTML still knows where it belongs.</span></div>
+          </div>
+          <div class="submit-row"><button class="submit-primary" type="submit" name="submitMode" value="standard">YES, I'M SERIOUS(ISH) <span>→</span></button><button class="submit-secondary" type="submit" name="submitMode" value="beacon" formmethod="post" formaction="#mayday-beacon">SEND A MAYDAY (JUST IN CASE) <span>↗</span></button></div>
+          <p class="form-footnote">By applying, you agree Mars is far away, the potatoes are not guaranteed, and “quick trip home” is not a thing.</p>
+        </form>
+        <div class="form-response" id="form-response" role="status" aria-live="polite" hidden></div>
+      </div>
+    </section>
+    <footer><span>RED FRONTIER <b>·</b> MARS SETTLEMENT PROGRAM</span><span>NO REFUNDS. NO RETURN FLIGHTS. VERY NICE VIEWS. <b>© 2035</b></span><span>MADE FOR THE BRAVE (AND POTATO FANS) <i>✳</i></span></footer>
+  </main>
+</body>
+</html>
